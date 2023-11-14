@@ -1,0 +1,10 @@
+###
+POST http://localhost:9000/api/hora HTTP/1.1
+Content-Type: application/json
+
+{
+    "hora_inicio_matutino": "8:30",
+    "hora_cierre_matutino": "13:00",
+    "hora_inicio_vespertino": "17:30",
+    "hora_cierre_vespertino": "23:00"
+}
