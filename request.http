@@ -8,3 +8,8 @@ Content-Type: application/json
     "hora_inicio_vespertino": "17:30",
     "hora_cierre_vespertino": "23:00"
 }
+
+
+###
+GET http://localhost:9000/api/hora HTTP/1.1
+
