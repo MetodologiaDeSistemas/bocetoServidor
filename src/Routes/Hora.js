@@ -22,4 +22,15 @@ router.post("/hora", (req,res) =>{
     })
 })
 
+router.get("/hora", (req,res) =>{
+    horarioSchema
+    .find()
+    .then((data)=>{
+        res.json(data)
+    })
+    .catch((error)=>{
+        res.json({message : error})
+    })
+})
+
 module.exports = router;
