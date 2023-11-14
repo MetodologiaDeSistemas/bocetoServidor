@@ -1,3 +1,4 @@
+//Crear
 ###
 POST http://localhost:9000/api/hora HTTP/1.1
 Content-Type: application/json
@@ -9,7 +10,26 @@ Content-Type: application/json
     "hora_cierre_vespertino": "23:00"
 }
 
-
+//Obtener todos
 ###
 GET http://localhost:9000/api/hora HTTP/1.1
+//Obtener uno solo
+###
+GET http://localhost:9000/api/hora/6553d0fb833404bbb23e4d9f HTTP/1.1
+
+//Actualizar
+###
+PUT http://localhost:9000/api/hora/6553d0fb833404bbb23e4d9f HTTP/1.1
+Content-Type: application/json
+
+{
+    "hora_inicio_matutino": "6:30",
+    "hora_cierre_matutino": "12:30",
+    "hora_inicio_vespertino": "16:30",
+    "hora_cierre_vespertino": "22:00"
+}
+
+//Eliminar
+###
+DELETE http://localhost:9000/api/hora/6553d0fb833404bbb23e4d9f HTTP/1.1
 
