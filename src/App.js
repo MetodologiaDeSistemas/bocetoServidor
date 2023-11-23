@@ -1,11 +1,11 @@
-
+import React from 'react';
+import FileUploadForm from "./Form_Img/Frm-Imagen";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Tu mama</h1>
-      </header>
+    <div>
+      <h1>React Image Upload</h1>
+      <FileUploadForm />
     </div>
   );
 }

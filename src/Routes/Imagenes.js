@@ -5,47 +5,57 @@
 // en cada uno de los EndPoint (funciones de peticion)
 
 const { Router } = require('express');
-
 const path = require('path');
 const { unlink } = require('fs-extra');
 const router = Router();
 
 // Models
 const Image = require('../models/Imagenes');
+const { log } = require('console');
 
-router.get('/', async (req, res) => {
-    const images = await Image.find();
-    res.render('../', { images });
-});
 
 router.get('/upload', (req, res) => {
-    res.render('upload');
+    Image
+    .find()
+    .then((data)=>{
+        res.json(data)
+    })
+    .catch((error)=>{
+        res.json({message : error})
+    })
 });
 
 router.post('/upload', async (req, res) => {
     const image = new Image();
-    image.description = req.body.description;
     image.filename = req.file.filename;
-    image.path = '/img/uploads/' + req.file.filename;
-    image.originalname = req.file.originalname;
+    image.path = '/Uploads/' + req.file.filename;
     image.mimetype = req.file.mimetype;
-    image.size = req.file.size;
-
     await image.save();
-    res.redirect('/');
+    res.send('Guardado')
 });
 
-router.get('/image/:id', async (req, res) => {
-    const { id } = req.params;
-    const image = await Image.findById(id);
-    res.render('profile', { image });
+router.get('/upload/:id', (req, res) => {
+    const {id} = req.params;
+    Image
+    .findById(id)
+    .then((data)=>{
+        res.json(data)
+    })
+    .catch((error)=>{
+        res.json({message : error})
+    })
 });
 
-router.get('/image/:id/delete', async (req, res) => {
-    const { id } = req.params;
-    const imageDeleted = await Image.findByIdAndDelete(id);
-    await unlink(path.resolve('./src/public' + imageDeleted.path));
-    res.redirect('/');
+router.delete('/upload/:id', async (req, res) => {
+    const {id} = req.params;
+    Image
+    .deleteOne({_id:id})
+    .then((data)=>{
+        res.json(data)
+    })
+    .catch((error)=>{
+        res.json({message : error})
+    })
 });
 
 module.exports = router;
