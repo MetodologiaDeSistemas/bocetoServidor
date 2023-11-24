@@ -4,19 +4,23 @@
 
 const mongoose = require("mongoose");
 const hora_Schema = mongoose.Schema({
-    hora_inicio_matutino:{
+    hora_Lunes:{
         type: String,
         required: true
     },
-    hora_cierre_matutino:{
+    hora_Martes:{
         type: String,
         required: true
     },
-    hora_inicio_vespertino:{
+    hora_Miercoles:{
         type: String,
         required: true
     },
-    hora_cierre_vespertino:{
+    hora_Jueves:{
+        type: String,
+        required: true
+    },
+    hora_Viernes:{
         type: String,
         required: true
     }

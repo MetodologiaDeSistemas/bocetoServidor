@@ -6,78 +6,78 @@
 
 const express = require('express');
 const router = express.Router();
-const horarioSchema = require("../Models/Hora")
+const horarioSchema = require("../Models/Hora");
 
+// Crear
+router.post("/hora", async (req, res) => {
+    try {
+        const hora = new horarioSchema(req.body);
+        const data = await hora.save();
+        res.json(data);
+    } catch (error) {
+        res.json({ message: error });
+    }
+});
 
-//Crear
-router.post("/hora", (req,res) =>{
-    const hora = horarioSchema(req.body);
-    hora
-    .save()
-    .then((data)=>{
-        res.json(data)
-    })
-    .catch((error)=>{
-        res.json({message : error})
-    })
-})
-//Obtener todos
-router.get("/hora", (req,res) =>{
-    horarioSchema
-    .find()
-    .then((data)=>{
-        res.json(data)
-    })
-    .catch((error)=>{
-        res.json({message : error})
-    })
-})
-//Obtener uno solo
-router.get("/hora/:id", (req,res) =>{
-    const {id} = req.params;
-    horarioSchema
-    .findById(id)
-    .then((data)=>{
-        res.json(data)
-    })
-    .catch((error)=>{
-        res.json({message : error})
-    })
-})
-//Actualizar
-router.put("/hora/:id", (req,res) =>{
-    const {id} = req.params;
-    const {hora_inicio_matutino, 
-        hora_cierre_matutino,
-        hora_inicio_vespertino,
-        hora_cierre_vespertino} = req.body;
-    horarioSchema
-    .updateOne({_id:id},{
-        $set:{
-            hora_inicio_matutino, 
-            hora_cierre_matutino,
-            hora_inicio_vespertino,
-            hora_cierre_vespertino
-        }
-    })
-    .then((data)=>{
-        res.json(data)
-    })
-    .catch((error)=>{
-        res.json({message : error})
-    })
-})
-//Eliminar
-router.delete("/hora/:id", (req,res) =>{
-    const {id} = req.params;
-    horarioSchema
-    .deleteOne({_id:id})
-    .then((data)=>{
-        res.json(data)
-    })
-    .catch((error)=>{
-        res.json({message : error})
-    })
-})
+// Obtener todos
+router.get("/hora", async (req, res) => {
+    try {
+        const data = await horarioSchema.find();
+        res.json(data);
+    } catch (error) {
+        res.json({ message: error });
+    }
+});
+
+// Obtener uno solo
+router.get("/hora/:id", async (req, res) => {
+    const { id } = req.params;
+    try {
+        const data = await horarioSchema.findById(id);
+        res.json(data);
+    } catch (error) {
+        res.json({ message: error });
+    }
+});
+
+// Actualizar
+router.put("/hora/:id", async (req, res) => {
+    const { id } = req.params;
+    const {
+        hora_Lunes,
+        hora_Martes,
+        hora_Miercoles,
+        hora_Jueves,
+        hora_Viernes,
+    } = req.body;
+    try {
+        const data = await horarioSchema.updateOne(
+            { _id: id },
+            {
+                $set: {
+                    hora_Lunes,
+                    hora_Martes,
+                    hora_Miercoles,
+                    hora_Jueves,
+                    hora_Viernes,
+                },
+            }
+        );
+        res.json(data);
+    } catch (error) {
+        res.json({ message: error });
+    }
+});
+
+// Eliminar
+router.delete("/hora/:id", async (req, res) => {
+    const { id } = req.params;
+    try {
+        const data = await horarioSchema.deleteOne({ _id: id });
+        res.json(data);
+    } catch (error) {
+        res.json({ message: error });
+    }
+});
 
 module.exports = router;
