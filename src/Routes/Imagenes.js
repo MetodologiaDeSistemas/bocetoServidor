@@ -14,48 +14,47 @@ const Image = require('../models/Imagenes');
 const { log } = require('console');
 
 
-router.get('/upload', (req, res) => {
-    Image
-    .find()
-    .then((data)=>{
-        res.json(data)
-    })
-    .catch((error)=>{
-        res.json({message : error})
-    })
+router.get('/upload', async (req, res) => {
+    try {
+        const data = await Image.find();
+        res.json(data);
+    } catch (error) {
+        res.json({ message: error });
+    }
 });
 
 router.post('/upload', async (req, res) => {
-    const image = new Image();
-    image.filename = req.file.filename;
-    image.path = '/Uploads/' + req.file.filename;
-    image.mimetype = req.file.mimetype;
-    await image.save();
-    res.send('Guardado')
+    try {
+        const image = new Image();
+        image.filename = req.file.filename;
+        image.path = '/Uploads/' + req.file.filename;
+        image.mimetype = req.file.mimetype;
+        await image.save();
+        res.send('Guardado');
+    } catch (error) {
+        res.json({ message: error });
+    }
 });
 
-router.get('/upload/:id', (req, res) => {
-    const {id} = req.params;
-    Image
-    .findById(id)
-    .then((data)=>{
-        res.json(data)
-    })
-    .catch((error)=>{
-        res.json({message : error})
-    })
+router.get('/upload/:id', async (req, res) => {
+    const { id } = req.params;
+    try {
+        const data = await Image.findById(id);
+        res.json(data);
+    } catch (error) {
+        res.json({ message: error });
+    }
 });
 
 router.delete('/upload/:id', async (req, res) => {
-    const {id} = req.params;
-    Image
-    .deleteOne({_id:id})
-    .then((data)=>{
-        res.json(data)
-    })
-    .catch((error)=>{
-        res.json({message : error})
-    })
+    const { id } = req.params;
+    try { 
+        const img = await Image.findByIdAndDelete({ _id: id });
+        await unlink(path.resolve('./src' + img.path));
+        res.json(data);
+    } catch (error) {
+        res.json({ message: error });
+    }
 });
 
 module.exports = router;
