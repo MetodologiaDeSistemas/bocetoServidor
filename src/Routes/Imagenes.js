@@ -10,7 +10,7 @@ const { unlink } = require('fs-extra');
 const router = Router();
 
 // Models
-const Image = require('../models/Imagenes');
+const Image = require('../Models/Imagenes');
 const { log } = require('console');
 
 
