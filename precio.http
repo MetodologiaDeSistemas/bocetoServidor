@@ -1,0 +1,30 @@
+//Crear
+###
+POST http://localhost:9000/api/precio HTTP/1.1
+Content-Type: application/json
+
+{
+    "Manicura_trad" : "3000",
+    "Esmaltado_sem_per" : "3300",
+    "Retiro_esmalte" : "800",
+    "Cejas" : "2000" ,
+    "Depilacion_def" : "3500"
+}
+
+//Obtener todos
+###
+GET http://localhost:9000/api/precio HTTP/1.1
+
+//Actualizar
+###
+PUT http://localhost:9000/api/precio/6562670977f4d96a69968124 HTTP/1.1
+Content-Type: application/json
+
+{
+    "Manicura_trad" : "3000",
+    "Esmaltado_sem_per" : "3300",
+    "Retiro_esmalte" : "800",
+    "Cejas" : "2000" ,
+    "Depilacion_def" : "3500"
+}
+

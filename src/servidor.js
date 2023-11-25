@@ -5,6 +5,7 @@ const horaRoutes = require ("./Routes/Hora")
 const imgRoutes = require ("./Routes/Imagenes")
 const f_d_Routes = require ("./Routes/Fecha_Dep")
 const validacionUsu = require ("./Routes/Validacion")
+const precio = require ("./Routes/Precios")
 const morgan = require('morgan');
 const multer = require('multer');
 const { v4: uuid } = require('uuid');
@@ -37,6 +38,7 @@ app.use('/api', horaRoutes)
 app.use('/api', imgRoutes)
 app.use('/api', f_d_Routes)
 app.use('/api', validacionUsu)
+app.use('/api', precio)
 
 //routes
 app.get('/', (req, res) => {
