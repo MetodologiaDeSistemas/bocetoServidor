@@ -4,6 +4,7 @@ require("dotenv").config();
 const horaRoutes = require ("./Routes/Hora")
 const imgRoutes = require ("./Routes/Imagenes")
 const f_d_Routes = require ("./Routes/Fecha_Dep")
+const validacionUsu = require ("./Routes/Validacion")
 const morgan = require('morgan');
 const multer = require('multer');
 const { v4: uuid } = require('uuid');
@@ -35,6 +36,7 @@ app.use(multer({
 app.use('/api', horaRoutes)
 app.use('/api', imgRoutes)
 app.use('/api', f_d_Routes)
+app.use('/api', validacionUsu)
 
 //routes
 app.get('/', (req, res) => {

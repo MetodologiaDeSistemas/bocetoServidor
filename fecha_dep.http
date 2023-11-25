@@ -29,3 +29,14 @@ Content-Type: application/json
 ###
 DELETE http://localhost:9000/api/fecha_dep HTTP/1.1
 
+
+
+//Crear
+# ###
+# POST http://localhost:9000/api/Validacion HTTP/1.1
+# Content-Type: application/json
+
+# {
+#     "usuario": "Admin",
+#     "password": "12345"
+# }
