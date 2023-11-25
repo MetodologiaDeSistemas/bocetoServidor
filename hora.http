@@ -1,0 +1,37 @@
+//Crear
+###
+POST http://localhost:9000/api/hora HTTP/1.1
+Content-Type: application/json
+
+{
+    "hora_Lunes": "15:00 - 20:30",
+    "hora_Martes": "15:00 - 20:30",
+    "hora_Miercoles": "15:00 - 20:30",
+    "hora_Jueves": "15:00 - 20:30",
+    "hora_Viernes": "15:00 - 20:30"
+}
+
+//Obtener todos
+###
+GET http://localhost:9000/api/hora HTTP/1.1
+//Obtener uno solo
+###
+GET http://localhost:9000/api/hora/6560aa6956c0ab43c0a57305 HTTP/1.1
+
+//Actualizar
+###
+PUT http://localhost:9000/api/hora/6560aa6956c0ab43c0a57305 HTTP/1.1
+Content-Type: application/json
+
+{
+    "hora_Lunes": "15:00 - 20:30",
+    "hora_Martes": "15:00 - 20:30",
+    "hora_Miercoles": "15:00 - 20:30",
+    "hora_Jueves": "15:00 - 20:30",
+    "hora_Viernes": "15:00 - 20:30"
+}
+
+//Eliminar
+###
+DELETE http://localhost:9000/api/hora/6560aa6956c0ab43c0a57305 HTTP/1.1
+
