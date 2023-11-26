@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import './Login.css'
+import { useNavigate } from 'react-router-dom'
 
 const Login = () => {
   const [usuario, setUsuario] = useState('');
   const [password, setPassword] = useState('');
-
+  const navigate = useNavigate();
   const handleLogin = async () => {
     try {
       const response = await fetch('/api/Validacion', {
@@ -19,6 +20,7 @@ const Login = () => {
 
       if (data.success) {
         window.alert('Inicio de sesión exitoso');
+        navigate('/Imagen')
       } else {
         window.alert('Credenciales incorrectas');
       }
@@ -27,6 +29,11 @@ const Login = () => {
       window.alert('Error al intentar iniciar sesión');
     }
   };
+    // Maneja la redirección al hacer clic en "Cancelar"
+    const handleCancelar = () => {
+      // Redirige a la página principal
+      navigate('/Imagen');
+    };
 
   return (
     <div className="Contenedor">
@@ -57,7 +64,7 @@ const Login = () => {
         <button className="btn_iniciar" type="button" onClick={handleLogin}>
           Iniciar Sesión
         </button>
-        <button className='btn_iniciar' type="button" onClick={handleLogin}>
+        <button className='btn_iniciar' type="button" onClick={handleCancelar}>
           Cancelar
         </button>
       </form>
