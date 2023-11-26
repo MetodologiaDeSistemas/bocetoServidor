@@ -24,11 +24,11 @@ PUT http://localhost:9000/api/hora/6560aa6956c0ab43c0a57305 HTTP/1.1
 Content-Type: application/json
 
 {
-    "hora_Lunes": "15:00 - 20:30",
-    "hora_Martes": "15:00 - 20:30",
-    "hora_Miercoles": "15:00 - 20:30",
-    "hora_Jueves": "15:00 - 20:30",
-    "hora_Viernes": "15:00 - 20:30"
+    "hora_Lunes": "15:00 - 20:00",
+    "hora_Martes": "15:00 - 20:00",
+    "hora_Miercoles": "15:00 - 20:00",
+    "hora_Jueves": "15:00 - 20:00",
+    "hora_Viernes": "15:00 - 20:00"
 }
 
 //Eliminar
