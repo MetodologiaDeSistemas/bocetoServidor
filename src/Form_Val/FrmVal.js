@@ -20,7 +20,7 @@ const Login = () => {
 
       if (data.success) {
         window.alert('Inicio de sesión exitoso');
-        navigate('/Imagen')
+        navigate('/Depilacer')
       } else {
         window.alert('Credenciales incorrectas');
       }
