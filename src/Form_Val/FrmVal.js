@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
+import './Login.css'
 
-const LoginForm = () => {
+const Login = () => {
   const [usuario, setUsuario] = useState('');
   const [password, setPassword] = useState('');
-  const [mensaje, setMensaje] = useState('');
 
   const handleLogin = async () => {
     try {
@@ -18,24 +18,26 @@ const LoginForm = () => {
       const data = await response.json();
 
       if (data.success) {
-        setMensaje('Inicio de sesión exitoso');
+        window.alert('Inicio de sesión exitoso');
       } else {
-        setMensaje('Credenciales incorrectas');
+        window.alert('Credenciales incorrectas');
       }
     } catch (error) {
       console.error('Error al realizar la solicitud:', error);
-      setMensaje('Error al intentar iniciar sesión');
+      window.alert('Error al intentar iniciar sesión');
     }
   };
 
   return (
-    <div>
-      <h2>Login</h2>
-      <form>
+    <div className="Contenedor">
+      <form className="form_iniciar">
+        <h1 className="titulo_1">Login</h1>
         <label>
           Usuario:
           <input
+            className="input_style"
             type="text"
+            placeholder="Usuario"
             value={usuario}
             onChange={(e) => setUsuario(e.target.value)}
           />
@@ -44,19 +46,23 @@ const LoginForm = () => {
         <label>
           Contraseña:
           <input
+            className="input_style"
             type="password"
+            placeholder='Contraseña'
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
         </label>
         <br />
-        <button type="button" onClick={handleLogin}>
+        <button className="btn_iniciar" type="button" onClick={handleLogin}>
           Iniciar Sesión
         </button>
+        <button className='btn_iniciar' type="button" onClick={handleLogin}>
+          Cancelar
+        </button>
       </form>
-      <p>{mensaje}</p>
     </div>
   );
 };
 
-export default LoginForm;
+export default Login;

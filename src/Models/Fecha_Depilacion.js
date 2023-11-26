@@ -1,6 +1,6 @@
-
 const { Int32 } = require("bson");
 const mongoose = require("mongoose");
+
 const fecha_dep = mongoose.Schema({
     mes:{
         type: String,
