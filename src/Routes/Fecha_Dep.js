@@ -14,26 +14,26 @@ const fecha_dep = require("../Models/Fecha_Depilacion");
 //     }
 // });
 
-// // Obtener todos
-// router.get("/fecha_dep", async (req, res) => {
+ // Obtener todos
+ router.get("/fecha_dep", async (req, res) => {
+     try {
+         const data = await fecha_dep.find();
+         res.json(data);
+     } catch (error) {
+         res.json({ message: error });
+     }
+ });
+
+// Obtener uno solo
+// router.get("/fecha_dep/:id", async (req, res) => {
+//     const { id } = req.params;
 //     try {
-//         const data = await fecha_dep.find();
+//         const data = await fecha_dep.findById(id);
 //         res.json(data);
 //     } catch (error) {
 //         res.json({ message: error });
 //     }
 // });
-
-// Obtener uno solo
-router.get("/fecha_dep/:id", async (req, res) => {
-    const { id } = req.params;
-    try {
-        const data = await fecha_dep.findById(id);
-        res.json(data);
-    } catch (error) {
-        res.json({ message: error });
-    }
-});
 
 // Actualizar
 router.put("/fecha_dep/:id", async (req, res) => {

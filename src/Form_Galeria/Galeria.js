@@ -1,8 +1,7 @@
-import Carousel from 'react-bootstrap/Carousel';
-import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
+import './Galeria.css'
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import Button from 'react-bootstrap/Button';
 
 function Galeria() {
   const [selectFile, setSelectFile] = useState(null);
@@ -47,27 +46,21 @@ function Galeria() {
     }
   };
 
-
-
   return (
-    <div className='Contenedor'>
-      <Carousel>
-        {imagenes.map((imagen) => (
-          <Carousel.Item key={imagen._id}>
-            <Card style={{ width: '18rem' }}>
-              <Card.Img variant="top" src={imagen.filename} />
-              <Card.Body>
-                <Card.Title>Titulo del Card</Card.Title>
-                <input type="file" onChange={handleFileChange} />
-                <Button variant="primary" type="submit" onClick={handleUpload}>
-                  Subir Imagen
-                </Button>
-              </Card.Body>
-            </Card>
-          </Carousel.Item>
-        ))}
-      </Carousel>
-    </div>
+<section class="layout">
+  <div class="Titulo"><h1 className='h1-Titulo'>Galeria de Trabajos</h1></div>
+  <div class="Subir">
+    <input type="file" onChange={handleFileChange}/>
+      <Button variant="primary" type="submit" onClick={handleUpload}>
+        Subir Imagen
+      </Button>
+  </div>
+  <div class="Manicura"><h1>Manicura</h1></div>
+  <div class="Depilacion"><h1>Depilacion</h1></div>
+  <div class="Masajes"><h1>Masajes</h1></div>
+  <div class="Pedicura"><h1>Pedicura</h1></div>
+  <div class="Retiro"><h1>Retiro</h1></div>
+</section>
   );
 }
 

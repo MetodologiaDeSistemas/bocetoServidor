@@ -1,0 +1,24 @@
+.DipiPispo {
+    border: 2px solid rgb(31, 181, 218);
+    background-color: rgb(101, 238, 204);
+    padding: 2vw; /* Ajusta el espaciado interno según el ancho de la pantalla */
+    margin: 2vw; /* Ajusta los márgenes externos según el ancho de la pantalla */
+    border-radius: 2vw; /* Ajusta los bordes redondeados según el ancho de la pantalla */
+    
+  }
+  .margendepi{
+    background: transparent;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+  }
+  
+  .aviso {
+  
+    text-align: center;
+    color: black;
+  }
+  
+  .cajimdepi{
+  
+    border: 2px solid rgb(31, 181, 218);}
