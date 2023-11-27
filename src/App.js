@@ -1,39 +1,27 @@
 import React from 'react';
-<<<<<<< HEAD
-import FileUploadForm from "./Form_Img/Frm-Imagen";
-import LoginForm from './Form_Val/FrmVal';
-import Precio_Serv from './Form_precio_serv/Precio_Serv';
-import Form_horas from './Form_Horas/Form_horas';
-import SubirImg from './Form_Img/Frm-Imagen';
-=======
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Depilacer from './Form_DepiLacer/Depilacer';
 import Galeria from './Form_Galeria/Galeria';
 import SubirImg from './Form_Img/Frm_Imagen';
 import Login from './Form_Val/FrmVal';
+import Cliente_horas from './Form_Horas/Cliente_Horas/Cliente_horas';
+import Cli_pre_serv from './Form_precio_serv/Cliente_precio_serv/Cli_pre_serv';
 
->>>>>>> chino
 
 function App() {
   return (
     <div>
-<<<<<<< HEAD
-      <h1>React Image Upload</h1>
-      {/* <FileUploadForm /> */}
-      {/* <LoginForm/> */}
-      {/* <Precio_Serv/> */}
-      {/* <Form_horas/> */}
-      <SubirImg/>
-=======
-      <BrowserRouter>
+      {/* <BrowserRouter>
         <Routes>
           <Route path='/' element={<Login/>}></Route>
           <Route path='/Galeria' element={<SubirImg/>}></Route>
           <Route path='/Depilacer' element={<Depilacer/>}></Route>
           <Route path='/Fotos' element={<Galeria/>}></Route>
+          <Route path='/Horarios' element={<Cliente_horas/>}></Route>
         </Routes>
-      </BrowserRouter>   
->>>>>>> chino
+      </BrowserRouter>    */}
+      {/* <Cliente_horas/> */}
+      <Cli_pre_serv/>
     </div>
   );
 }

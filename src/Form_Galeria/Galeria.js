@@ -67,7 +67,6 @@ function Galeria() {
           </Carousel.Item>
         ))}
       </Carousel>
-      console.log({data})
     </div>
   );
 }
