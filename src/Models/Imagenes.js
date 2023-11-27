@@ -8,6 +8,7 @@ const imageSchema = new Schema({
     filename: {type: String},
     path : {type: String},
     mimetype: {type: String},
+    iden : {type : Number}
 });
 
 module.exports = model('Image', imageSchema);

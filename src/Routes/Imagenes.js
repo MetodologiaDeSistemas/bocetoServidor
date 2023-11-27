@@ -11,7 +11,6 @@ const router = Router();
 
 // Models
 const Image = require('../Models/Imagenes');
-const { log } = require('console');
 
 
 router.get('/upload', async (req, res) => {
@@ -23,12 +22,14 @@ router.get('/upload', async (req, res) => {
     }
 });
 
-router.post('/upload', async (req, res) => {
+router.post('/upload/:id', async (req, res) => {
     try {
+        const id = req.params.id;
         const image = new Image();
         image.filename = req.file.filename;
         image.path = '/Uploads/' + req.file.filename;
         image.mimetype = req.file.mimetype;
+        image.iden = id;
         await image.save();
         res.send('Guardado');
     } catch (error) {

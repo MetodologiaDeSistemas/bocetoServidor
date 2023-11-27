@@ -3,6 +3,7 @@ import FileUploadForm from "./Form_Img/Frm-Imagen";
 import LoginForm from './Form_Val/FrmVal';
 import Precio_Serv from './Form_precio_serv/Precio_Serv';
 import Form_horas from './Form_Horas/Form_horas';
+import SubirImg from './Form_Img/Frm-Imagen';
 
 function App() {
   return (
@@ -11,7 +12,8 @@ function App() {
       {/* <FileUploadForm /> */}
       {/* <LoginForm/> */}
       {/* <Precio_Serv/> */}
-      <Form_horas/>
+      {/* <Form_horas/> */}
+      <SubirImg/>
     </div>
   );
 }

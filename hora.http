@@ -35,3 +35,15 @@ Content-Type: application/json
 ###
 DELETE http://localhost:9000/api/hora/6560aa6956c0ab43c0a57305 HTTP/1.1
 
+
+
+
+//Eliminar Imagen
+###
+DELETE http://localhost:9000/api/upload/6563eba5ee46bca8eea32883 HTTP/1.1
+
+
+
+//Obtener Imagen
+###
+GET http://localhost:9000/api/upload HTTP/1.1
