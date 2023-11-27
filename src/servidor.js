@@ -23,15 +23,15 @@ app.use(express.static('build'));
 app.use(morgan('dev'));
 app.use(express.urlencoded({extended: false}));
 //-----------------------------------------------------------
-// const storage = multer.diskStorage({
-//     destination: path.join(__dirname, 'Uploads'),
-//     filename: (req, file, cb, filename) => {
-//         cb(null, uuid() + path.extname(file.originalname));
-//     }
-// }) 
-// app.use(multer({
-//     storage : storage
-// }).single('image'))
+const storage = multer.diskStorage({
+    destination: path.join(__dirname, 'Uploads'),
+    filename: (req, file, cb, filename) => {
+        cb(null, uuid() + path.extname(file.originalname));
+    }
+}) 
+app.use(multer({
+    storage : storage
+}).single('image'))
 //-----------------------------------------------------------
 
 app.use('/api', horaRoutes)
