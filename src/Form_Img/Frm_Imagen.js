@@ -19,7 +19,6 @@ const SubirImg = () => {
           'Content-Type': 'multipart/form-data',
         },
       });
-
       console.log('Imagen enviada');
     } catch (error) {
       console.error('Error:', error);

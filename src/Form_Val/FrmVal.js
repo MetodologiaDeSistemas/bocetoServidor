@@ -20,7 +20,7 @@ const Login = () => {
 
       if (data.success) {
         window.alert('Inicio de sesión exitoso');
-        navigate('/Depilacer')
+        navigate('/Fotos')
       } else {
         window.alert('Credenciales incorrectas');
       }
@@ -39,8 +39,9 @@ const Login = () => {
     <div className="Contenedor">
       <form className="form_iniciar">
         <h1 className="titulo_1">Login</h1>
-        <label>
-          Usuario:
+        <label className='lbl_Val'>
+          <b>Usuario:</b>
+          <br></br>
           <input
             className="input_style"
             type="text"
@@ -50,8 +51,9 @@ const Login = () => {
           />
         </label>
         <br />
-        <label>
-          Contraseña:
+        <label className='lbl_Val'>
+          <b>Contraseña:</b>
+          <br></br>
           <input
             className="input_style"
             type="password"

@@ -1,7 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Depilacer from './Form_DepiLacer/Depilacer';
-import SubirImg from './Form_Img/Frm-Imagen';
+import Galeria from './Form_Galeria/Galeria';
+import SubirImg from './Form_Img/Frm_Imagen';
 import Login from './Form_Val/FrmVal';
 
 
@@ -11,8 +12,9 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Login/>}></Route>
-          <Route path='/Imagen' element={<SubirImg/>}></Route>
+          <Route path='/Galeria' element={<SubirImg/>}></Route>
           <Route path='/Depilacer' element={<Depilacer/>}></Route>
+          <Route path='/Fotos' element={<Galeria/>}></Route>
         </Routes>
       </BrowserRouter>   
     </div>
