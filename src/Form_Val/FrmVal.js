@@ -20,7 +20,7 @@ const Login = () => {
 
       if (data.success) {
         window.alert('Inicio de sesión exitoso');
-        navigate('/FechaDep')
+        navigate('/FechaDep')//-------------> corregir la ruta para redireccionar al menu de admin
       } else {
         window.alert('Credenciales incorrectas');
       }
@@ -32,7 +32,7 @@ const Login = () => {
     // Maneja la redirección al hacer clic en "Cancelar"
     const handleCancelar = () => {
       // Redirige a la página principal
-      navigate('/Imagen');
+      navigate('/Inicio');//-------------> corregir la ruta para volver al inicio
     };
 
   return (
