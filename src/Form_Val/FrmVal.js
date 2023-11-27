@@ -20,7 +20,7 @@ const Login = () => {
 
       if (data.success) {
         window.alert('Inicio de sesión exitoso');
-        navigate('/Fotos')
+        navigate('/FechaDep')
       } else {
         window.alert('Credenciales incorrectas');
       }
